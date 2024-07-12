@@ -54,7 +54,7 @@ namespace Calculatrice_1.Calculatrice
             return result;
         }
 
-        public static string InputString(string messageInput, string messageError, bool isEmptyOrNull = false, string[]? contains = null)
+        public static string InputString(string messageInput, string messageError, bool isEmptyOrNull = false, string[]? container = null)
         {
             Console.Write(messageInput);
             string? result = Console.ReadLine();
@@ -69,9 +69,9 @@ namespace Calculatrice_1.Calculatrice
                     result = Console.ReadLine();
                 }
             }
-            if (contains?.Any() ?? false)
+            if (container?.Any() ?? false)
             {
-                while (!(contains?.Contains(result)??false))
+                while (!(container?.Contains(result)??false))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(messageError);
