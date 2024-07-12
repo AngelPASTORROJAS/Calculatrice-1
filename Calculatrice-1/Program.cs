@@ -38,6 +38,7 @@ void Calculator()
         }
                 
         calcul.Operande2 = Utils.InputDecimal(strOperande, strErreur);
+        bool isDivisible = true;
 
         string operateur1 = "";
         switch (operateur)
@@ -51,8 +52,18 @@ void Calculator()
                 operateur1 = "-";
                 break;
             case "/":
-                calcul.Division();
-                operateur1 = "/";
+                if (calcul.Operande2 != 0)
+                {
+                    calcul.Division();
+                    operateur1 = "/";
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\tVous ne pouvez pas diviser par 0");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    isDivisible = false;
+                }
                 break;
             case "+":
                 calcul.Addition();
@@ -61,7 +72,10 @@ void Calculator()
             default:
                 break;
         }
-        Console.WriteLine($"{lastRes} {operateur1} {calcul.Operande2} = {calcul.Resultat}");
+        if (isDivisible)
+        {
+            Console.WriteLine($"{lastRes} {operateur1} {calcul.Operande2} = {calcul.Resultat}");
+        }
     } while (!isEnd);
 
     Console.ReadKey();
