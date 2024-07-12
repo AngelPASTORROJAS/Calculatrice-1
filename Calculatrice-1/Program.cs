@@ -1,14 +1,20 @@
 ﻿using Calculatrice_1.Calculatrice;
 
+/**La logique algorithmique est bonne, et les fonctions sont bien utilisées.
+ * L'utilisation de la classe est pertinente.
+ * Cependant, le code manque de documentation et le contrôle de saisie est insuffisant, ce qui fait crasher le programme. 
+ * L'exercice mériterait d'être complété.
+*/
 class Program
 {
     static void Main()
     {
+        string strErreur = "\tErreur de saisie, veuillez saisir un nombre.";
+        string strOperande = "Saisissez un nombre : ";
+        string strOperateur = "Saisissez votre opérateur (*, /, -, +) et pour quitter (q/Q) : ";
         void Calculator()
         {
             bool isEnd = false;
-            string strOperande = "Saisissez un nombre : ";
-            string strOperateur = "Saisissez votre opérateur (*, /, -, +) et pour quitter (q/Q) : ";
             Calculatrice calcul = new Calculatrice();
             calcul.Reset();
             do
@@ -16,13 +22,12 @@ class Program
                 decimal lastRes = calcul.Resultat;
                 if (calcul.Resultat == 0)
                 {
-                    Console.Write(strOperande);
-                    calcul.Operande1 = Convert.ToDecimal(Console.ReadLine());
+                    calcul.Operande1 = Utils.InputDecimal(strOperande, strErreur);
                     calcul.Resultat = calcul.Operande1;
                     lastRes = calcul.Resultat;
                 }
-                Console.Write(strOperateur);
-                string? operateur = Console.ReadLine();
+                
+                string? operateur = Utils.InputString(strOperateur, "\tErreur de saisie, veuillez saisir un opérateur", true, ["q","Q","-","+","/","*"]);
                 if (operateur?.ToUpper() == "Q")
                 {
                     Console.ReadKey();
@@ -30,8 +35,7 @@ class Program
                     return;
                 }
                 
-                Console.Write(strOperande);
-                calcul.Operande2 = Convert.ToDecimal(Console.ReadLine());
+                calcul.Operande2 = Utils.InputDecimal(strOperande, strErreur);
 
                 string operateur1 = "";
                 switch (operateur)
@@ -64,43 +68,28 @@ class Program
 
         void DisplayMenu()
         {
-            string erreurSaisie = "\tErreur de saisie, faites un choix valide!";
             bool isEnd = false;
             do
             {
-                string menu = "--- Calculatrice ---\n\n";
-                menu += "[0] Quitter\n";
-                menu += "[1] Commencer\n";
+                string menu = "--- Calculatrice ---\n\n[0] Quitter\n[1] Commencer\n";
 
-                Console.WriteLine(menu);
-                bool isValidChoice = int.TryParse(Console.ReadLine(), out int choice);
+                int choice = Utils.InputInt(menu, strErreur);
                 switch (choice)
                 {
                     case 0:
-                        if (isValidChoice)
-                        {
-                            isEnd=true;
-                            break;
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        isEnd=true;
+                        break;
                     case 1:
                         Console.Clear();
                         Calculator();
                         break;
                     default:
-                        Console.WriteLine(erreurSaisie);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(strErreur);
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                }
-                if (!isValidChoice)
-                {
-                    Console.WriteLine(erreurSaisie);
-                    Console.ReadKey();
-                    Console.Clear();
                 }
             } while (!isEnd);
         }
