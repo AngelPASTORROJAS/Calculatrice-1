@@ -7,7 +7,6 @@
         /* These lines of code are defining properties for the class `Calculatrice`. Each property
         represents a decimal value that can be accessed and modified from outside the class. Here's
         what each property does: */
-        public decimal Operande1 { get; set; }
         public decimal Operande2 { get; set; }
         public decimal Resultat { get; set; }
 

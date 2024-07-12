@@ -25,8 +25,7 @@ void Calculator()
         decimal lastRes = calcul.Resultat;
         if (calcul.Resultat == 0)
         {
-            calcul.Operande1 = Utils.InputDecimal(strOperande, strErreur);
-            calcul.Resultat = calcul.Operande1;
+            calcul.Resultat = Utils.InputDecimal(strOperande, strErreur);
             lastRes = calcul.Resultat;
         }
                 
