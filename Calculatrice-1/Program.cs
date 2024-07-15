@@ -1,20 +1,9 @@
 ﻿using Calculatrice_1.Calculatrice;
 
-/* These lines of code are initializing string variables with messages that will be displayed to the
-user during the interactive calculator program execution. */
 string strErreur = "\tErreur de saisie, veuillez saisir un nombre.";
 string strOperande = "Saisissez un nombre : ";
 string strOperateur = "Saisissez votre opérateur (*, /, -, +) et pour quitter (q/Q) : ";
 
-/// <summary>
-/// The function `Calculator` allows the user to perform basic arithmetic operations interactively using
-/// a custom `Calculatrice` class.
-/// </summary>
-/// <returns>
-/// The `Calculator()` function returns void, which means it does not return any value. It performs
-/// calculations and displays results within the function, but it does not return any specific value to
-/// the calling code.
-/// </returns>
 void Calculator()
 {
     bool isEnd = false;
@@ -82,10 +71,6 @@ void Calculator()
     Console.Clear();
 }
 
-/// <summary>
-/// The DisplayMenu function displays a menu for a calculator program and allows the user to choose
-/// between quitting or starting the calculator.
-/// </summary>
 void DisplayMenu()
 {
     bool isEnd = false;
@@ -114,9 +99,4 @@ void DisplayMenu()
     } while (!isEnd);
 }
 
-/* `DisplayMenu();` is a function that displays a menu for a calculator program. It
-allows the user to choose between quitting the program or starting the calculator functionality. The
-function prompts the user with options to either quit or begin using the calculator. Depending on
-the user's choice, it either exits the program or calls the `Calculator()` function to perform
-arithmetic operations interactively. */
 DisplayMenu();

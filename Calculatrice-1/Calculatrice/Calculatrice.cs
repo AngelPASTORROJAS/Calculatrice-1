@@ -1,18 +1,16 @@
 ﻿namespace Calculatrice_1.Calculatrice
 {
-    /* The class "Calculatrice" contains methods for performing basic arithmetic operations on two
-    operands and storing the result. */
+    /// <summary>
+    /// La classe <c>Calculatrice</c> permet d'éffectuer des opérations.
+    /// </summary>
     public class Calculatrice
     {
-        /* These lines of code are defining properties for the class `Calculatrice`. Each property
-        represents a decimal value that can be accessed and modified from outside the class. Here's
-        what each property does: */
+        
         public decimal Operande2 { get; set; }
         public decimal Resultat { get; set; }
 
         /// <summary>
-        /// The function "Multiplicateur" multiplies the value of "Resultat" by the value of
-        /// "Operande2".
+        /// La méthode <c>Multiplicateur</c> effectue une multiplication de l'attribut Resultat et Operande2.
         /// </summary>
         public void Multiplicateur()
         {
@@ -20,7 +18,7 @@
         }
 
         /// <summary>
-        /// The function "Soustraction" subtracts Operande2 from Resultat.
+        /// La méthode <c>Soustraction</c> effectue une soustraction de l'attribut Resultat et Operande2.
         /// </summary>
         public void Soustraction()
         {
@@ -28,7 +26,7 @@
         }
 
         /// <summary>
-        /// The function "Addition" adds the value of Operande2 to the Resultat variable.
+        /// La méthode <c>Addition</c> effectue une addition de l'attribut Resultat et Operande2.
         /// </summary>
         public void Addition()
         {
@@ -36,7 +34,7 @@
         }
 
         /// <summary>
-        /// The Division function divides the Resultat by Operande2 using Decimal.Divide method.
+        /// La méthode <c>Division</c> effectue une division de l'attribut Resultat par Opérande2.
         /// </summary>
         public void Division()
         {
@@ -44,7 +42,7 @@
         }
 
         /// <summary>
-        /// The Reset function sets the Resultat variable to 0.
+        /// La méthode <c>Reset</c> reinitialise la valeur de Resultat de notre calculatrice.
         /// </summary>
         public void Reset()
         {
